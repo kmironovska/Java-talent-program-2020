@@ -18,13 +18,11 @@ public class Application extends Adress {
             newAdress.setCity(city);
             newAdress.setZipCode(zipCode);
 
-            System.out.println(newAdress.getStreet());
-            System.out.println(newAdress.getStreetNumber());
-            System.out.println(newAdress.getCity());
-            System.out.println(newAdress.getZipCode());
+            System.out.println(newAdress.toString());
 
-        } catch (Exception e) {
-            System.out.println("Error occured" + e);
+
+        } catch (invalidZipCodeException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
