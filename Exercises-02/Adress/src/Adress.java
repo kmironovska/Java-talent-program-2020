@@ -11,12 +11,6 @@ public class Adress {
     public Adress() {
     }
 
-    public Adress(String street, int streetNumber, String city, int zipCode) {
-        this.street = street;
-        this.streetNumber = streetNumber;
-        this.city = city;
-        this.zipCode = zipCode;
-    }
 
     public void setStreet(String street) {
         this.street = street;
@@ -55,5 +49,12 @@ public class Adress {
         invalidZipCodeException(String s) {
             super(s);
         }
+    }
+    @Override
+    public String toString() {
+        return "Street = " + street +
+                "\n Street Number = " + streetNumber +
+                "\n City = " + city +
+                "\nZip Code = " + zipCode;
     }
 }
