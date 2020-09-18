@@ -15,15 +15,15 @@ public class Application {
         Scanner scan = new Scanner(System.in);
         String choosedAlgorithm = scan.nextLine();
 
-            if (choosedAlgorithm.toLowerCase().equals("7z")) {
-                sevenZip.archiver(directory, sevenZipCompression);
-                System.out.println("Created 7z file");
-            } else if (choosedAlgorithm.toLowerCase().equals("zip")) {
-                zip.archiver(directory, zipCommpresion);
-                System.out.println("Created zip file");
-            }
+        if (choosedAlgorithm.toLowerCase().equals("7z")) {
+            sevenZip.archiver(directory, sevenZipCompression);
+            System.out.println("Created 7z file");
+        } else if (choosedAlgorithm.toLowerCase().equals("zip")) {
+            zip.archiver(directory, zipCommpresion);
+            System.out.println("Created zip file");
         }
-
-
     }
+
+
+}
 
