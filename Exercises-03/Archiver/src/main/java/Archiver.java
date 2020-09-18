@@ -3,5 +3,5 @@ import java.io.IOException;
 
 public interface Archiver {
 
-    abstract void archiver(File directory, File archive) throws IOException;
+    void archiver(File directory, File archive) throws IOException;
 }
