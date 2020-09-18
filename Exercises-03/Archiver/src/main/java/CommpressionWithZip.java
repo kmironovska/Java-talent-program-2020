@@ -13,7 +13,7 @@ public class CommpressionWithZip implements Archiver {
         FileOutputStream fis = new FileOutputStream(archive);
         ZipOutputStream zis = new ZipOutputStream(fis);
         File[] files = directory.listFiles();
-        for(File file : files){
+        for (File file : files) {
             zis.putNextEntry(new ZipEntry(new File(String.valueOf(file)).getName()));
             zis.write(FileUtils.readFileToByteArray(file));
             zis.closeEntry();
@@ -23,5 +23,3 @@ public class CommpressionWithZip implements Archiver {
 
     }
 }
-
-
