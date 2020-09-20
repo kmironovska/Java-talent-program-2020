@@ -30,9 +30,9 @@ public class Application {
         }
         List<String> list = new ArrayList<>(uniqueWords);
         if (choosedSortingType.toLowerCase().equals("asc")) {
-            list.stream().sorted((o1, o2) -> o1.compareTo(o2)).filter(w -> max > 0 ? (w.length() <= max) : w.length() >= min).forEach(System.out::println);
+            list.stream().sorted((o1, o2) -> o1.compareTo(o2)).filter(w -> max > 0 ? (w.length() >= min && w.length() <= max) : w.length() >= min).forEach(System.out::println);
         } else if (choosedSortingType.toLowerCase().equals("desc")) {
-            list.stream().sorted((o1, o2) -> o2.compareTo(o1)).filter(w -> max > 0 ? (w.length() <= max) : w.length() >= min).forEach(System.out::println);
+            list.stream().sorted((o1, o2) -> o2.compareTo(o1)).filter(w -> max > 0 ? ( w.length() >= min && w.length() <= max) : w.length() >= min).forEach(System.out::println);
         }
 
     }
