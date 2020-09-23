@@ -10,47 +10,45 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/notes")
 public class NotesController {
 
-    @Autowired
+
     private NoteService noteService;
 
+    @Autowired
+    public NotesController(NoteService noteService) {
+        this.noteService = noteService;
+    }
 
-    //create new note
-    @RequestMapping(method = RequestMethod.POST, value = "/notes/create")
+    @PostMapping("/api/notes")
     public void createNote(@RequestBody CreateNoteRequest request) {
         noteService.createNote(request.title, request.content);
     }
 
-    public static class CreateNoteRequest {
-        public String title;
-        public String content;
-    }
-
-    //find note by id
-    @RequestMapping(method = RequestMethod.GET, value = "/notes/{id}")
+    @GetMapping("/api/notes/{id}")
     public Note findNote(@PathVariable Long id) {
         return noteService.findNote(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-    //find all notes
-    @RequestMapping("/notes")
+    @GetMapping("api/notes")
     public List<Note> findAllNotes() {
         return noteService.findAllNotes();
     }
 
-    //update note
-    @RequestMapping(method = RequestMethod.POST, value = "/notes/update/{id}")
+    @PutMapping("/api/notes/{id}")
     public void updateNote(@PathVariable Long id, @RequestBody CreateNoteRequest request) {
         Note note1 = new Note(request.title, request.content);
         noteService.updateNote(id, note1);
     }
 
-    //delete note
-    @RequestMapping(method = RequestMethod.PUT, value = "/notes/delete/{id}")
+    @DeleteMapping("/api/notes/{id}")
     public void deleteNote(@PathVariable Long id) {
         noteService.deleteNote(id);
+    }
+
+    public static class CreateNoteRequest {
+        public String title;
+        public String content;
     }
 
 }
