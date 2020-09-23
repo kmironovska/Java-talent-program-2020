@@ -11,7 +11,12 @@ import java.util.Optional;
 @Service
 public class NoteService {
 
+
     @Autowired
+    public NoteService(NoteRepository noteRepository) {
+        this.noteRepository = noteRepository;
+    }
+
     private NoteRepository noteRepository;
 
     public void createNote(String title, String content) {
