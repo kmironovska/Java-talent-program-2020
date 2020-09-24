@@ -37,8 +37,7 @@ public class NoteRepository {
         for (Note note1 : notes) {
             if (note1.getId().equals(id)) {
                 note1.setContent(note.getContent());
-                note1.setTitle(note.getTitle());
-                save(note1);
+                note1.setTitle(note.getTitle())
                 break;
             }
         }
