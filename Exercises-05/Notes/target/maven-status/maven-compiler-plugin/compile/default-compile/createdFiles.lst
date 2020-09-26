@@ -1,0 +1,6 @@
+com\seavus\notes\NotesApplication.class
+com\seavus\notes\repository\NoteRepository.class
+com\seavus\notes\api\NoteController$CreateNoteRequest.class
+com\seavus\notes\service\NoteService.class
+com\seavus\notes\api\NoteController.class
+com\seavus\notes\model\Note.class
