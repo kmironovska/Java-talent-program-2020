@@ -18,80 +18,80 @@ public class ApplicationTest {
 
     @Test
     void application_sortingAscending() {
-        List<String> testOneExpectedResults = Arrays.asList("i", "ni", "one", "four", "fivee", "sixsix");
+        List<String> expectedResults = Arrays.asList("i", "ni", "one", "four", "fivee", "sixsix");
         List<String> resultOne = application.sortingAndFiltering("asc", wordsToTest, 1, 6);
 
-        Assertions.assertEquals(testOneExpectedResults, resultOne);
+        Assertions.assertEquals(expectedResults, resultOne);
 
 
     }
 
     @Test
     void application_sortingDescending() {
-        List<String> testOneExpectedResults = Arrays.asList("sixsix", "fivee", "four", "one", "ni", "i");
+        List<String> expectedResults = Arrays.asList("sixsix", "fivee", "four", "one", "ni", "i");
         List<String> resultOne = application.sortingAndFiltering("desc", wordsToTest, 1, 6);
 
-        Assertions.assertEquals(testOneExpectedResults, resultOne);
+        Assertions.assertEquals(expectedResults, resultOne);
 
 
     }
 
     @Test
     void application_sortingAscendingWithNoRequiredMinLength() {
-        List<String> testOneExpectedResults = Arrays.asList("i", "ni", "one", "four");
+        List<String> expectedResults = Arrays.asList("i", "ni", "one", "four");
         List<String> resultOne = application.sortingAndFiltering("asc", wordsToTest, 0, 4);
 
-        Assertions.assertEquals(testOneExpectedResults, resultOne);
+        Assertions.assertEquals(expectedResults, resultOne);
 
 
     }
 
     @Test
     void application_sortingAscendingWithNoRequiredMaxLength() {
-        List<String> testOneExpectedResults = Arrays.asList("ni", "one", "four", "fivee", "sixsix", "twothree", "sevensevenseven");
+        List<String> expectedResults = Arrays.asList("ni", "one", "four", "fivee", "sixsix", "twothree", "sevensevenseven");
         List<String> resultOne = application.sortingAndFiltering("asc", wordsToTest, 2, 0);
 
-        Assertions.assertEquals(testOneExpectedResults, resultOne);
+        Assertions.assertEquals(expectedResults, resultOne);
 
 
     }
 
     @Test
     void application_sortingAscendingWithNoRequiredLength() {
-        List<String> testOneExpectedResults = Arrays.asList("i", "ni", "one", "four", "fivee", "sixsix", "twothree", "sevensevenseven");
+        List<String> expectedResults = Arrays.asList("i", "ni", "one", "four", "fivee", "sixsix", "twothree", "sevensevenseven");
         List<String> resultOne = application.sortingAndFiltering("asc", wordsToTest, 0, 0);
 
-        Assertions.assertEquals(testOneExpectedResults, resultOne);
+        Assertions.assertEquals(expectedResults, resultOne);
 
 
     }
 
     @Test
     void application_sortingDescendingWithNoRequiredMinLength() {
-        List<String> testOneExpectedResults = Arrays.asList("four", "one", "ni", "i");
+        List<String> expectedResults = Arrays.asList("four", "one", "ni", "i");
         List<String> resultOne = application.sortingAndFiltering("desc", wordsToTest, 0, 4);
 
-        Assertions.assertEquals(testOneExpectedResults, resultOne);
+        Assertions.assertEquals(expectedResults, resultOne);
 
 
     }
 
     @Test
     void application_sortingDescendingWithNoRequiredMaxLength() {
-        List<String> testOneExpectedResults = Arrays.asList("sevensevenseven", "twothree", "sixsix", "fivee", "four", "one", "ni");
+        List<String> expectedResults = Arrays.asList("sevensevenseven", "twothree", "sixsix", "fivee", "four", "one", "ni");
         List<String> resultOne = application.sortingAndFiltering("desc", wordsToTest, 2, 0);
 
-        Assertions.assertEquals(testOneExpectedResults, resultOne);
+        Assertions.assertEquals(expectedResults, resultOne);
 
 
     }
 
     @Test
     void application_sortingDescendingWithNoRequiredLength() {
-        List<String> testOneExpectedResults = Arrays.asList("sevensevenseven", "twothree", "sixsix", "fivee", "four", "one", "ni", "i");
+        List<String> expectedResults = Arrays.asList("sevensevenseven", "twothree", "sixsix", "fivee", "four", "one", "ni", "i");
         List<String> resultOne = application.sortingAndFiltering("desc", wordsToTest, 0, 0);
 
-        Assertions.assertEquals(testOneExpectedResults, resultOne);
+        Assertions.assertEquals(expectedResults, resultOne);
 
 
     }
