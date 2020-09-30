@@ -17,7 +17,7 @@ function getNumbers() {
 }
 
 test('can be used to pull apart objects', () => {
-    const {city:city ,zip:zip} = getAddress();
+    const {city, zip} = getAddress();
     expect(city)
         .toBe('Skopje');
     expect(zip)
