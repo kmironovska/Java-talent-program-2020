@@ -1,0 +1,9 @@
+button{
+    background-color: green;
+    font-size: 15px;
+}
+
+button[disabled]{
+    background-color: red;
+    font-size: 15px;
+}
