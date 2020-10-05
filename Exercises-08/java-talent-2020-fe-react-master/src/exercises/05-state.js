@@ -18,15 +18,15 @@ class EditNote extends React.Component {
         }
     }
 
-    ChangeNameandContent = (data) => {
+    changeNameandContent = (data) => {
         this.setState({
             [data.target.name]: data.target.value
         });
     };
     render() {
         return ( <div>
-            <input type={'text'} name = 'title' value={this.state.title} onChange={this.ChangeNameandContent}/>
-            <input type={'text'} name='content' value={this.state.content} onChange={this.ChangeNameandContent}/>
+            <input type={'text'} name = 'title' value={this.state.title} onChange={this.changeNameandContent}/>
+            <input type={'text'} name='content' value={this.state.content} onChange={this.changeNameandContent}/>
             <br/>
             <p><b>Title: {this.state.title}</b></p>
             <p><b>Content: {this.state.content}</b></p>
