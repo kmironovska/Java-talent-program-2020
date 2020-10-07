@@ -3,6 +3,7 @@ package com.seavus.notes.model;
 import javax.persistence.*;
 import java.util.Set;
 
+
 @Entity
 public class Note {
 
@@ -16,7 +17,7 @@ public class Note {
     @ManyToOne
     private User user;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     private Set<Tag> tags;
 
     public Note(String title, String content, User user, Set<Tag> tags) {
@@ -37,7 +38,6 @@ public class Note {
                 ", content='" + content + '\'' +
                 '}';
     }
-
     public Long getId() {
         return id;
     }
