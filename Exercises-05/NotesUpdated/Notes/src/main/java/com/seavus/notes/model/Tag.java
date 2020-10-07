@@ -1,9 +1,7 @@
 package com.seavus.notes.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Tag {
@@ -16,6 +14,10 @@ public class Tag {
     @ManyToOne
     private User user;
 
+    @ManyToMany(mappedBy = "tags")
+    private Set<Note> notes;
+
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -27,6 +29,7 @@ public class Tag {
     public void setUser(User user) {
         this.user = user;
     }
+
 
     public Tag(String name, User user) {
         this.name = name;
