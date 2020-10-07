@@ -13,11 +13,12 @@ import java.util.Set;
 public interface NoteRepository extends JpaRepository<Note, Long> {
 
 
-    @Query(value = "select * from note join note_tags on note.id=note_tags.note_id where note_tags.tags_id = :id", nativeQuery = true)
+    @Query(value = "select * from note join note_tags on note.id=note_tags.notes_id where note_tags.tags_id = :id", nativeQuery = true)
     List<Note> findNotesByTagsId(Long id);
 
     @Query(value = "select * from note where user_id =:id", nativeQuery = true)
     Set<Note> findNotesByUserId(Long id);
+
 
 
 }
