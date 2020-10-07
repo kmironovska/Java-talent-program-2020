@@ -30,11 +30,13 @@ public class NoteService {
         this.noteRepository = noteRepository;
         this.securityService = securityService;
         this.tagRepository = tagRepository;
+
     }
 
     //find all notes
     public Set<Note> findNotes() {
         User user = securityService.getAuthenticatedUser();
+        System.out.println(user);
         return noteRepository.findNotesByUserId(user.getId());
     }
 
@@ -70,10 +72,10 @@ public class NoteService {
         noteRepository.deleteById(id);
     }
 
-
     public List<Note> findNotesByTagsId(Long id) {
 
         return noteRepository.findNotesByTagsId(id);
+
     }
 
 }
