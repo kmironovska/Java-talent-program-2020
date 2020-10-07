@@ -2,12 +2,14 @@ package com.seavus.notes.service;
 
 import com.seavus.notes.model.Tag;
 import com.seavus.notes.model.User;
+import com.seavus.notes.repository.NoteRepository;
 import com.seavus.notes.repository.TagRepository;
 import com.seavus.notes.security.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,11 +19,13 @@ public class TagService {
     private TagRepository tagRepository;
 
     private SecurityService securityService;
+    private NoteRepository noteRepository;
 
     @Autowired
-    public TagService(TagRepository tagRepository, SecurityService securityService) {
+    public TagService(TagRepository tagRepository, SecurityService securityService,NoteRepository noteRepository) {
         this.tagRepository = tagRepository;
         this.securityService = securityService;
+        this.noteRepository = noteRepository;
     }
 
     public Tag createTag(String name) {
@@ -53,7 +57,9 @@ public class TagService {
         return tagRepository.findById(id);
     }
 
+    @Transactional
     public void deleteTagById(Long id) {
+        noteRepository.findNotesByTagsId(id).forEach(note -> note.getTags().stream().filter(tag -> !tag.getId().equals(id)));
         tagRepository.deleteById(id);
     }
 }
